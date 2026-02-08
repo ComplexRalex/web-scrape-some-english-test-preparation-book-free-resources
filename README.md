@@ -10,6 +10,14 @@ Just run:
 npm i
 ```
 
+## Configuration
+
+It's important to define a variable in a `.env` file with the webpage URL.
+
+```sh
+WEB_PAGE=...
+```
+
 ## Run
 
 As simple as:
