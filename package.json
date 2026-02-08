@@ -1,0 +1,16 @@
+{
+  "name": "web-scrape-some-english-test-preparation-book-free-resources",
+  "version": "1.0.0",
+  "description": "A scrapper to download the free resources of an English test preparation book from their resource page.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.37.2"
+  }
+}
