@@ -93,7 +93,8 @@ const scrape = async () => {
         console.log(`Fetching section ${optionLevel1.label}...`);
 
         await page.select(".form-item-level2-select select", optionLevel1.value.toString());
-        await page.waitForSelector('.form-item-audio-select select');
+        await page.waitForResponse((res) => res.url().includes('ajax') && res.status() === 200);
+        await page.waitForSelector('.form-item-audio-select select.ajax-processed');
 
         const optionsLevel2 = await page.$$eval('.form-item-audio-select select option', (options) => {
             return Array.from(options)
@@ -111,7 +112,8 @@ const scrape = async () => {
 
         for (const optionLevel2 of optionsLevel2) {
             await page.select(".form-item-audio-select select", optionLevel2.value.toString());
-            await page.waitForSelector('.file.file-audio audio');
+            await page.waitForResponse((res) => res.url().includes('ajax') && res.status() === 200);
+            await page.waitForSelector('.file.file-audio audio.b1-processed.b2-processed', { visible: true });
 
             const source = await page.$eval('.file.file-audio audio source', (source) => {
                 return source.src;
